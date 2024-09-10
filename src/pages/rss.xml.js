@@ -7,7 +7,7 @@ export async function GET(context) {
   const posts = Object.values(postImportResult);
 
   return rss({
-    title: "Dan Blog",
+    title: "Luiz Rosa ",
     description: "Welcome to subscribe to my blog",
     site: context.site,
     items: posts.map((post) => ({
