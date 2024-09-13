@@ -1,0 +1,13 @@
+{
+"names": {
+"YOUR_NAME": "7f4ab7042815bbb32be286b26ccf1fccd9b0c86c632c8574bbecebd20700ba3c"
+},
+"relays": {
+"7f4ab7042815bbb32be286b26ccf1fccd9b0c86c632c8574bbecebd20700ba3c": [
+"wss://nostr.eden.land",
+"wss://nostr.relay.damus.io",
+"wss://relay.snort.social",
+"wss://relay.orangepill.dev"
+]
+}
+}
