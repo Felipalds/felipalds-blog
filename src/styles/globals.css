@@ -26,6 +26,8 @@
     --purple: lab(85 40 60); /* Converted from #FFC107 (lighter orange) */
   }
 }
+
+
 @property --myColor1 {
   syntax: "<color>";
   initial-value: #222;
@@ -66,4 +68,17 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.prose {
+  font-family: "Inter", sans-serif;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 20px;
 }
