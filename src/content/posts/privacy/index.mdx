@@ -11,28 +11,26 @@ href: "privacy"
 
 Topic to be covered in this article:
 
-1. Why you should care about your privacy on-line
-2. The basics: passwords and 2FA
-3. You should buy a VPN
-4. Where should you search? Search engines
-5. Navigate safely with good browsers
-6. Private e-mails
-7. Talk safely with your friends
-8. Social media: why am I using Nostr
+1. [Why you should care about your privacy on-line](#1-why-you-should-care-about-your-privacy-on-line)
+2. [The basics: passwords and 2FA](#2-the-basics-passwords-and-2fa)
+3. [You should buy a VPN](#3-you-should-buy-a-vpn)
+4. [Where should you search?](#4-where-should-you-search-search-engines)
+5. [Navigate safely with good browsers](#5-navigate-safely-with-private-browsers)
+6. [Private e-mail clients](#6-private-e-mail-clients)
 
 <br/>
 
 
-## 1. Why you should care about your privacy on-line.
+## 1. Why you should care about your privacy on-line
 
 Nowadays everything is too comfortable: you have all your files in a cloud and you can access everything with your phone or with your browser.
 You have all your friends in the palm of your hands. You have access to all the knowledge of the _entire history of humanity in seconds_.
 
 But with all this comfort come also a very threatener fact: your privacy is in danger, and you probably even don't know why.
 
-> "But why should I care?"
+*"But why should I care?"*
 
-I really do not think we are close to 1984, a dystopic world written by George Orwell (which I really recomend you to read). But I will cite some facts to make you think:
+I really don't think we are close to 1984, a dystopic world written by George Orwell (which I really recomend you to read). But I will cite some facts to make you think:
 
 
 
@@ -48,7 +46,7 @@ like internet banking, confidential data or just don't want that another one see
 
 ![](./orwell.webp)
 
-## 2. The basics: passwords and password managers.
+## 2. The basics: passwords and 2FA
 
 The most trivial thing you should be caring about is your passwords. If a database is leaked, for example, you may be in risk,
 because the hackers now have knowledge about you passwords.
@@ -56,22 +54,13 @@ because the hackers now have knowledge about you passwords.
 Even if is hashed with a good algorithm like [bcrypt](https://www.wikiwand.com/en/articles/Bcrypt) or [sha256](https://www.wikiwand.com/en/articles/SHA-2)
 hackers still can use it for they own gains, because of the [rainbow tables](https://www.wikiwand.com/en/articles/Rainbow_table).
 
-> What are rainbow tables?
+*What are rainbow tables?*
 
 They are basically a precomputed table, a "cache" that hackers use to derivate your password having the hash you give to them.
 So, if your password is so simple, like "123456" or "password", they already know its hash and can hack you.
 Let's see a practical example. I will generate a bad password and pass it in a hash algorithm and see what I receive. Let's open neovim.
 
-```
-
-package main
-
-import (
-    "fmt"
-    "golang.org/x/crypto/bcrypt"
-)
-
-
+```go
 func main () {
 
     // let's define our password
@@ -90,16 +79,31 @@ func main () {
 
 This go code will only bcrypt a simple password and give me its hash, which is:
 
-> $2a$10$A/4HX.355tXHW7g4/j4Eme3IdkWvXupvSUEE.VLiuRJ3A5qOOGhW.
+<span style="color:lightblue">$2a$10$A/4HX.355tXHW7g4/j4Eme3IdkWvXupvSUEE.VLiuRJ3A5qOOGhW.</span>
+
 
 You can think you are very safe if the system you are using do this. But if a lot of people use this password, it is very easy
 to find it in a *rainbow table* and check from there (much easier then checking all the possibilities, in brute force, which is
 impossible).
 
 
-### 2.1: Use a very long password, that even you can't remember.
 
-The first tip is simple: if you can remember your own password, it **is a bad one. Change it.**. You -&gt; cannot &lt;- remember your passwords.
+| Password   | MD5 Hash                           | Salt      |
+|------------|------------------------------------|-----------|
+| password   | 5f4dcc3b5aa765d61d8327deb882cf99 | abc123    |
+| 123456     | e10adc3949ba59abbe56e057f20f883e | xyz789    |
+| qwerty     | d8578edf8458ce06fbc5bb76a58c5ca4 | passSalt  |
+| letmein    | 0d107d09f5bbe40cade3de5c71e9e9b7 | hashSalt  |
+| 123456789  | 25f9e794323b453885f5181f1b624d0b | safe2024  |
+
+<br/>
+**Note:** Hash values can vary if salts are applied or different hashing algorithms are used. This example uses MD5 as a placeholder for demonstration purposes.
+
+
+
+### 2.1: Use a very long password, that even you can't remember
+
+The first tip is simple: if you can remember your own password, it **is a bad one. Change it.**. You &rarr; cannot &larr; remember your passwords.
 If you can, it probably is leaked!
 
 The ideal is to use a password generator, or use a very long phrase, changing letters by numbers and using special chars. But the generator is the goat here.
@@ -115,15 +119,18 @@ I will recomend here the [Bitwarden](https://bitwarden.com/), which I am using f
 It is simple. It is consise. It is safe. It is **open source**. And it is free.
 They also offer a paid plan which offers you 2FA (next topic) and enterprise plans. But I am good with the free one.
 
+![](./table-hacking.png)
 ### 2.2: 2FA is required!!!
 
 If you don't use two factor authentication, you are late. It prevent hackers from accessing your account if they know your password
 (which is now very strong because of the last topic), they can't access, because 2FA needs something you are holding, you have with
 you, like your phone or e-mail.
 
+I'm using Authy, from Twillio, but any alternative is fine.
+
 ## 3. You should buy a VPN
 
-I started using VPN a month from today, and I didn't knew much about it. But I was forced by the force of the law (😂😂😂).
+I started using VPN three months from today, and I didn't knew much about it. But I was forced by the force of the law (😂😂😂).
 Started studying and I realized that I was late. I will recomend an article that opened my mind: https://restoreprivacy.com/vpn/, but basically, a VPN encrypts all your data and masks you identity over the internet. Suppose you are using Google by your phone
 in your house. Google basically know exactly where you are and who you are. It knows your IP, location, device... It's really scaring!
 
@@ -145,10 +152,50 @@ And never, never use a free one. They are data steallers.
 Search engines are basically machines to collect your private data. They can know everything about you. You are sick? The engine will know it. You are broke?
 The engine will know it. You are thinking to vote to candidate ABC? Oh yes, the engine will know it. And much more your imagination allows you to think.
 
-Google Engine is probably the best one, not because they have the bests developers, another companies also have excelent ones. But
-because they create a **monopoly of data extraction of its users**. No company in the world have its capacity. Do you really think
+Google Engine is probably the best one, not because they have the bests developers, another companies also have excellent ones. But
+because they created a **monopoly of data extraction of its users**. No company in the world have its capacity. Do you really think
 that Microsoft makes Bing bad because they don't have engineering to do a good one?
 And because of Google is the best by far, a lot of people don't want to switch.
 
 - Search engines may be a Google Proxy
 - Search engines may have its own crawler
+
+A good alternative if you don't imagine yourself away from Google is [Startpage](https://www.startpage.com). It basically searchs
+for you, acting like a Google's proxy.
+But my recomendation here is [Brave Search](https://search.brave.com/). It uses its own crawler, indexing 10 billion pages. Your simple question of "how to
+center a div" of course will be found with no problems. For more complex searchs, it can act like Startpage, googling it for you.
+I use it daily and recomend.
+
+## 5. Navigate safely with private browsers
+
+A browser can be your best friend or your enemy, talking in terms of privacy. As search engines do, a browser can have all your data (the sites you visit, your downloads, how much time do you spend in each domain...).
+
+Chrome is the suprasum of digital espionage, wheter you like it or not.
+
+This is why I use [Brave](https://brave.com/), a Chromium-base browser. It is totally private and doesn't store any data in any server. It is fast and open-source.
+
+Some people like Firefox. It is also a good option, but I don't like it too much. Brave is faster, IMO.
+
+Talking about browsers, there are a lot of private and good ones, choose the best for you:
+- [DuckDuckGo](https://duckduckgo.com/)
+- [Mullvad](https://mullvad.net/en/browser)
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
+
+But **never use Opera**. I really don't know how people fell into the idea of "gamer browser". Dude, WTF? It makes NO sense.
+Opera is now [owned by a chinese company](https://www.engadget.com/2016-07-18-opera-browser-sold-to-a-chinese-consortium-for-600-million.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAANgjmBexG1OVoJZSYu6j67r9SfRlNNH8M-L3U4AdxPVhNd-KReKGKmaLLvxaknbN5yUOgiNTdPSbyujtr-2ebEuE2ynrtbOHN-CppcqaNyzXtmultuXHlq1hRURd2bdDgBgeJR3GPLFGxuE7PAev4wxQYyBUmPMNOVIKh-43BScf) and... well, I don't trust a little bit. It is a spyware to me.
+
+![](./brave.png)
+## 6. Private e-mail clients
+
+E-mails are so important nowadays that I don't even imagine a world without them anymore.
+Like chat clients owned by big companies, e-mail clients can share your data to sell you products. Gmail does. Outlook does.
+
+I read in [some article](https://restoreprivacy.com/email/secure/) once that "if you want to have a private and good e-mail, pay for it, because
+if you don't pay for a product... you are the product".
+
+And it makes a lot of sense. This is why I am using (and paying) for [Proton Mail](https://proton.me/) and Proton Drive as well.
+Proton is a swiss end-to-end encrypted e-mail service, founded in 2013. It is a complete suite for productivity and privacy. Take a quick look!
+
+Another good option is [Tuta](https://tuta.com/), but I never used this before.
+
+![](./proton.jpeg)
