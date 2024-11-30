@@ -6,8 +6,11 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Merriweather", ...defaultTheme.fontFamily.sans],
+      sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/typography')
+
+  ],
 };

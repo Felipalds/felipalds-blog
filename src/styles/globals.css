@@ -17,7 +17,7 @@
   :root {
     --text: rgba(255, 255, 255, 0.88);
     --title: white;
-    --bg: rgb(40, 44, 53);
+    --bg: rgb(32, 32, 32);
     --code-bg: #191d27;
     --link: #ffa7c4;
     --inlineCode-bg: rgba(115, 124, 153, 0.2);
@@ -26,6 +26,7 @@
     --purple: lab(85 40 60); /* Converted from #FFC107 (lighter orange) */
   }
 }
+
 @property --myColor1 {
   syntax: "<color>";
   initial-value: #222;
@@ -66,4 +67,17 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.prose {
+  font-family: "Inter", sans-serif;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 20px;
 }
