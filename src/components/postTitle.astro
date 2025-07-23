@@ -9,12 +9,12 @@ interface Props {
 
 const { title, date } = Astro.props;
 
-let lightStart = new Color("lab(70.00 30.00 60.00)"); // Bright orange (#FF9800)
-let lightEnd = new Color("lab(85.00 40.00 60.00)");   // Lighter orange (#FFC107)
+let lightStart = new Color("lab(68 -44 63)");
+let lightEnd = new Color("lab(62 -36 46)");
 let lightRange = lightStart.range(lightEnd);
 
-let darkStart = new Color("lab(60.00 35.00 50.00)");   // Darker orange (#F57C00)
-let darkEnd = new Color("lab(75.00 45.00 55.00)");     // Brighter orange (#FFA726)
+let darkStart = new Color("lab(68 -44 63)");
+let darkEnd = new Color("lab(62 -36 46)");
 let darkRange = darkStart.range(darkEnd);
 
 let today = new Date();

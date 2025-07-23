@@ -10,8 +10,8 @@
   --link: #d23669;
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1a1a1a;
-  --pink: lab(70 30 60); /* Converted from #FF9800 (bright orange) */
-  --purple: lab(85 40 60); /* Converted from #FFC107 (lighter orange) */
+  --pink: lab(68 -44 63); /* Converted from #FF9800 (bright orange) */
+    --purple: lab(62 -36 46); /* Converted from #FFC107 (lighter orange) */
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -22,8 +22,8 @@
     --link: #ffa7c4;
     --inlineCode-bg: rgba(115, 124, 153, 0.2);
     --inlineCode-text: #e6e6e6;
-    --pink: lab(70 30 60); /* Converted from #FF9800 (bright orange) */
-    --purple: lab(85 40 60); /* Converted from #FFC107 (lighter orange) */
+    --pink: lab(68 -44 63); /* Converted from #FF9800 (bright orange) */
+    --purple: lab(62 -36 46); /* Converted from #FFC107 (lighter orange) */
   }
 }
 
